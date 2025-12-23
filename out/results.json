@@ -1,0 +1,75 @@
+{
+  "export_source": {
+    "source_file": "C:\\Users\\user\\Downloads\\chatgpt-problem-extractor\\chatgpt_export.json",
+    "generated_at": "2025-12-23T00:51:26-06:00",
+    "tool_version": "0.1.0",
+    "notes": "dummy emission check"
+  },
+  "stats": {
+    "conversations_scanned": 0,
+    "messages_scanned": 0,
+    "records_emitted": 1,
+    "records_filtered_out": 0,
+    "tag_counts": {
+      "other": 1
+    }
+  },
+  "records": [
+    {
+      "record_id": "prb_000001",
+      "conversation": {
+        "conversation_id": "demo_convo",
+        "title": "Demo Conversation",
+        "created_at": null,
+        "updated_at": null
+      },
+      "message_ref": {
+        "user_message_id": "demo_user_msg",
+        "assistant_message_id": "demo_asst_msg",
+        "user_timestamp": null,
+        "assistant_timestamp": null
+      },
+      "problem": {
+        "raw_text": "my pings are not going through",
+        "normalized_text": "Ping fails; no connectivity between endpoints.",
+        "signals": {
+          "has_question_mark": false,
+          "has_code_block": false,
+          "has_stack_trace": false,
+          "keyword_hits": [
+            "ping",
+            "not working"
+          ]
+        }
+      },
+      "solution": {
+        "raw_text": "Check IP, subnet mask, default gateway, and cabling/ports.",
+        "solution_type": "steps",
+        "artifacts": {
+          "includes_code": false,
+          "includes_commands": false,
+          "includes_numbered_steps": false
+        }
+      },
+      "classification": {
+        "tags": [
+          "networking"
+        ],
+        "domain": "networking",
+        "confidence": 75
+      },
+      "quality": {
+        "is_solved_in_thread": false,
+        "pairing_method": "dummy",
+        "pair_distance": 1
+      },
+      "export": {
+        "source_file": "C:\\Users\\user\\Downloads\\chatgpt-problem-extractor\\chatgpt_export.json",
+        "generated_at": "2025-12-23T00:51:26-06:00",
+        "tool_version": "0.1.0",
+        "notes": "dummy emission check"
+      }
+    }
+  ],
+  "schema_version": "1.0"
+}
