@@ -1,0 +1,113 @@
+[
+  {
+    "id": "conv_001",
+    "title": "Network Connection Troubleshooting",
+    "create_time": 1672531200,
+    "update_time": 1672534800,
+    "current_node": "msg_root_001",
+    "mapping": {
+      "msg_root_001": {
+        "id": "msg_root_001",
+        "message": {
+          "id": "msg_root_001",
+          "author": {"role": "user"},
+          "create_time": 1672531200,
+          "content": {
+            "content_type": "text",
+            "parts": ["Why can't I ping my router? My network isn't responding and I'm not sure what to check. The network shows connected but there's no actual data flowing."]
+          }
+        },
+        "parent": null,
+        "children": ["msg_asst_001"]
+      },
+      "msg_asst_001": {
+        "id": "msg_asst_001",
+        "message": {
+          "id": "msg_asst_001",
+          "author": {"role": "assistant"},
+          "create_time": 1672531500,
+          "content": {
+            "content_type": "text",
+            "parts": ["Here are the steps to troubleshoot your network connection:\n\n1. First, verify your network adapter is enabled:\n```bash\nipconfig /all\n```\n\n2. Check the default gateway:\n```bash\nroute print\n```\n\n3. Try pinging the default gateway directly:\n```bash\nping 192.168.1.1\n```\n\n4. If that fails, check the cable connections and restart your router.\n\n5. If it's a wireless connection, forget the network and reconnect with the password.\n\nLet me know which step fails and we can dig deeper."]
+          }
+        },
+        "parent": "msg_root_001",
+        "children": []
+      }
+    }
+  },
+  {
+    "id": "conv_002",
+    "title": "Python Syntax Error Help",
+    "create_time": 1672610400,
+    "update_time": 1672614000,
+    "current_node": "msg_root_002",
+    "mapping": {
+      "msg_root_002": {
+        "id": "msg_root_002",
+        "message": {
+          "id": "msg_root_002",
+          "author": {"role": "user"},
+          "create_time": 1672610400,
+          "content": {
+            "content_type": "text",
+            "parts": ["I'm getting a syntax error in my Python code. Here's the traceback:\n\nTraceback (most recent call last):\n  File \"script.py\", line 42, in <module>\n    result = calculate(x, y\nSyntaxError: '(' was never closed\n\nWhat am I doing wrong?"]
+          }
+        },
+        "parent": null,
+        "children": ["msg_asst_002"]
+      },
+      "msg_asst_002": {
+        "id": "msg_asst_002",
+        "message": {
+          "id": "msg_asst_002",
+          "author": {"role": "assistant"},
+          "create_time": 1672610700,
+          "content": {
+            "content_type": "text",
+            "parts": ["The issue is on line 42 - you're missing a closing parenthesis. Change this:\n\n```python\nresult = calculate(x, y\n```\n\nTo this:\n\n```python\nresult = calculate(x, y)\n```\n\nThe opening `(` after `calculate` needs a matching `)` at the end. Make sure to close all parentheses, brackets, and braces.\n\nTip: Most editors highlight matching parentheses - look for the highlighting to help you spot missing ones."]
+          }
+        },
+        "parent": "msg_root_002",
+        "children": []
+      }
+    }
+  },
+  {
+    "id": "conv_003",
+    "title": "General Chat",
+    "create_time": 1672691200,
+    "update_time": 1672694800,
+    "current_node": "msg_root_003",
+    "mapping": {
+      "msg_root_003": {
+        "id": "msg_root_003",
+        "message": {
+          "id": "msg_root_003",
+          "author": {"role": "user"},
+          "create_time": 1672691200,
+          "content": {
+            "content_type": "text",
+            "parts": ["What is machine learning?"]
+          }
+        },
+        "parent": null,
+        "children": ["msg_asst_003"]
+      },
+      "msg_asst_003": {
+        "id": "msg_asst_003",
+        "message": {
+          "id": "msg_asst_003",
+          "author": {"role": "assistant"},
+          "create_time": 1672691500,
+          "content": {
+            "content_type": "text",
+            "parts": ["Machine learning is a subset of artificial intelligence..."]
+          }
+        },
+        "parent": "msg_root_003",
+        "children": []
+      }
+    }
+  }
+]

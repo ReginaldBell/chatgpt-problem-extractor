@@ -1,50 +1,165 @@
 {
   "export_source": {
     "source_file": "C:\\Users\\user\\Downloads\\chatgpt-problem-extractor\\chatgpt_export.json",
-    "generated_at": "2025-12-23T00:51:26-06:00",
-    "tool_version": "0.1.0",
-    "notes": "dummy emission check"
+    "generated_at": "2026-01-19T13:26:53-06:00",
+    "tool_version": "0.2.0",
+    "notes": ""
   },
   "stats": {
-    "conversations_scanned": 0,
-    "messages_scanned": 0,
-    "records_emitted": 1,
+    "conversations_scanned": 3,
+    "messages_scanned": 6,
+    "records_emitted": 3,
     "records_filtered_out": 0,
     "tag_counts": {
-      "other": 1
+      "infrastructure": 2,
+      "networking": 2,
+      "debugging": 1,
+      "programming": 1,
+      "uncategorized": 1
     }
   },
   "records": [
     {
-      "record_id": "prb_000001",
+      "record_id": "prb_conv_001_0",
       "conversation": {
-        "conversation_id": "demo_convo",
-        "title": "Demo Conversation",
-        "created_at": null,
-        "updated_at": null
+        "conversation_id": "conv_001",
+        "title": "Network Connection Troubleshooting",
+        "created_at": "2023-01-01T00:00:00",
+        "updated_at": "2023-01-01T01:00:00"
       },
       "message_ref": {
-        "user_message_id": "demo_user_msg",
-        "assistant_message_id": "demo_asst_msg",
-        "user_timestamp": null,
-        "assistant_timestamp": null
+        "user_message_id": "msg_root_001",
+        "assistant_message_id": "msg_asst_001",
+        "user_timestamp": "2023-01-01T00:00:00Z",
+        "assistant_timestamp": "2023-01-01T00:05:00Z"
       },
       "problem": {
-        "raw_text": "my pings are not going through",
-        "normalized_text": "Ping fails; no connectivity between endpoints.",
+        "raw_text": "Why can't I ping my router? My network isn't responding and I'm not sure what to check. The network shows connected but there's no actual data flowing.",
+        "normalized_text": "Why can't I ping my router? My network isn't responding and I'm not sure what to check. The network shows connected but there's no actual data flowing.",
         "signals": {
-          "has_question_mark": false,
+          "has_question_mark": true,
           "has_code_block": false,
           "has_stack_trace": false,
           "keyword_hits": [
-            "ping",
-            "not working"
+            "can't"
           ]
         }
       },
       "solution": {
-        "raw_text": "Check IP, subnet mask, default gateway, and cabling/ports.",
-        "solution_type": "steps",
+        "raw_text": "Here are the steps to troubleshoot your network connection:\n\n1. First, verify your network adapter is enabled:\n```bash\nipconfig /all\n```\n\n2. Check the default gateway:\n```bash\nroute print\n```\n\n3. Try pinging the default gateway directly:\n```bash\nping 192.168.1.1\n```\n\n4. If that fails, check the cable connections and restart your router.\n\n5. If it's a wireless connection, forget the network and reconnect with the password.\n\nLet me know which step fails and we can dig deeper.",
+        "solution_type": "explanation",
+        "artifacts": {
+          "includes_code": true,
+          "includes_commands": false,
+          "includes_numbered_steps": true
+        }
+      },
+      "classification": {
+        "tags": [
+          "infrastructure",
+          "networking"
+        ],
+        "domain": "networking",
+        "confidence": 50
+      },
+      "quality": {
+        "is_solved_in_thread": true,
+        "pairing_method": "next_assistant_within_k",
+        "pair_distance": 1
+      },
+      "export": {
+        "source_file": "C:\\Users\\user\\Downloads\\chatgpt-problem-extractor\\chatgpt_export.json",
+        "generated_at": "2026-01-19T19:26:53.510730Z",
+        "tool_version": "0.2.0",
+        "notes": ""
+      }
+    },
+    {
+      "record_id": "prb_conv_002_0",
+      "conversation": {
+        "conversation_id": "conv_002",
+        "title": "Python Syntax Error Help",
+        "created_at": "2023-01-01T22:00:00",
+        "updated_at": "2023-01-01T23:00:00"
+      },
+      "message_ref": {
+        "user_message_id": "msg_root_002",
+        "assistant_message_id": "msg_asst_002",
+        "user_timestamp": "2023-01-01T22:00:00Z",
+        "assistant_timestamp": "2023-01-01T22:05:00Z"
+      },
+      "problem": {
+        "raw_text": "I'm getting a syntax error in my Python code. Here's the traceback:\n\nTraceback (most recent call last):\n  File \"script.py\", line 42, in <module>\n    result = calculate(x, y\nSyntaxError: '(' was never closed\n\nWhat am I doing wrong?",
+        "normalized_text": "I'm getting a syntax error in my Python code. Here's the traceback:\n\nTraceback (most recent call last):\n  File \"script.py\", line 42, in <module>\n    result = calculate(x, y\nSyntaxError: '(' was never ",
+        "signals": {
+          "has_question_mark": true,
+          "has_code_block": true,
+          "has_stack_trace": true,
+          "keyword_hits": [
+            "error"
+          ]
+        }
+      },
+      "solution": {
+        "raw_text": "The issue is on line 42 - you're missing a closing parenthesis. Change this:\n\n```python\nresult = calculate(x, y\n```\n\nTo this:\n\n```python\nresult = calculate(x, y)\n```\n\nThe opening `(` after `calculate` needs a matching `)` at the end. Make sure to close all parentheses, brackets, and braces.\n\nTip: Most editors highlight matching parentheses - look for the highlighting to help you spot missing ones.",
+        "solution_type": "explanation",
+        "artifacts": {
+          "includes_code": true,
+          "includes_commands": false,
+          "includes_numbered_steps": false
+        }
+      },
+      "classification": {
+        "tags": [
+          "debugging",
+          "infrastructure",
+          "networking",
+          "programming"
+        ],
+        "domain": "programming",
+        "confidence": 50
+      },
+      "quality": {
+        "is_solved_in_thread": true,
+        "pairing_method": "next_assistant_within_k",
+        "pair_distance": 1
+      },
+      "export": {
+        "source_file": "C:\\Users\\user\\Downloads\\chatgpt-problem-extractor\\chatgpt_export.json",
+        "generated_at": "2026-01-19T19:26:53.510993Z",
+        "tool_version": "0.2.0",
+        "notes": ""
+      }
+    },
+    {
+      "record_id": "prb_conv_003_0",
+      "conversation": {
+        "conversation_id": "conv_003",
+        "title": "General Chat",
+        "created_at": "2023-01-02T20:26:40",
+        "updated_at": "2023-01-02T21:26:40"
+      },
+      "message_ref": {
+        "user_message_id": "msg_root_003",
+        "assistant_message_id": null,
+        "user_timestamp": "2023-01-02T20:26:40Z",
+        "assistant_timestamp": null
+      },
+      "problem": {
+        "raw_text": "What is machine learning?",
+        "normalized_text": "What is machine learning?",
+        "signals": {
+          "has_question_mark": true,
+          "has_code_block": false,
+          "has_stack_trace": false,
+          "keyword_hits": [
+            "what is"
+          ]
+        }
+      },
+      "solution": {
+        "raw_text": null,
+        "solution_type": "unknown",
         "artifacts": {
           "includes_code": false,
           "includes_commands": false,
@@ -53,21 +168,21 @@
       },
       "classification": {
         "tags": [
-          "networking"
+          "uncategorized"
         ],
-        "domain": "networking",
-        "confidence": 75
+        "domain": "other",
+        "confidence": 0
       },
       "quality": {
         "is_solved_in_thread": false,
-        "pairing_method": "dummy",
-        "pair_distance": 1
+        "pairing_method": "next_assistant_within_k",
+        "pair_distance": -1
       },
       "export": {
         "source_file": "C:\\Users\\user\\Downloads\\chatgpt-problem-extractor\\chatgpt_export.json",
-        "generated_at": "2025-12-23T00:51:26-06:00",
-        "tool_version": "0.1.0",
-        "notes": "dummy emission check"
+        "generated_at": "2026-01-19T19:26:53.511092Z",
+        "tool_version": "0.2.0",
+        "notes": ""
       }
     }
   ],

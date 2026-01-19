@@ -7,11 +7,14 @@ def test_redaction_and_schema():
     
     # 1. Test Redactor Logic
     redactor = Redactor(enabled=True)
-    dirty_text = "My email is test@example.com and my key is AKIA1234567890ABCDEF"
+    sensitive_email = "test@example.com"
+    dirty_text = f"My email is {sensitive_email} and my key is AKIA1234567890ABCDEF"
     clean_text = redactor.mask(dirty_text)
     
+    # FIX: Logic check - ensure the original secret is GONE
     assert "[REDACTED_EMAIL]" in clean_text
     assert "[REDACTED_AWS_KEY]" in clean_text
+    assert sensitive_email not in clean_text  # This confirms actual redaction
     print("✅ Redaction Logic: PASS")
 
     # 2. Test Schema Integrity (Standard Mode Compliance)

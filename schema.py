@@ -14,6 +14,7 @@ def setup_logger(name: str, level: int = logging.INFO):
     logger.setLevel(level)
     return logger
 
+
 log = setup_logger("schema")
 
 from dataclasses import dataclass, asdict, field, is_dataclass
@@ -67,13 +68,19 @@ class MessageRef:
     assistant_timestamp: Optional[str] = None
 
 
+
+# FIX: Allow keyword_hits to accept both list and tuple to support JSON deserialization
+from typing import List
+
 @dataclass(frozen=True)
 class ProblemSignals:
     has_question_mark: bool = False
     has_code_block: bool = False
     has_stack_trace: bool = False
-    keyword_hits: tuple[str, ...] = ()
+    keyword_hits: List[str] = field(default_factory=list)
 
+    def __post_init__(self):
+        object.__setattr__(self, 'keyword_hits', list(self.keyword_hits))
 
 @dataclass(frozen=True)
 class ProblemBlock:
